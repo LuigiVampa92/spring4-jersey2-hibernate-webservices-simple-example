@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="
+            http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1.0.0-01" author="pvasiliev">
+        <comment>Create test user table</comment>
+
+        <createSequence sequenceName="TEST_USER_SEQ"/>
+        <createTable tableName="TEST_USER">
+            <column name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="EXTERNAL_ID" type="TEXT"/>
+            <column name="FIRST_NAME" type="TEXT"/>
+            <column name="LAST_NAME" type="TEXT"/>
+            <column name="BIRTHDAY" type="DATE"/>
+            <column name="EMAIL" type="TEXT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.0-02" author="pvasiliev">
+        <comment>Insert test user data</comment>
+
+        <insert tableName="TEST_USER">
+            <column name="ID" valueSequenceNext="TEST_USER_SEQ"/>
+            <column name="EXTERNAL_ID">123</column>
+            <column name="FIRST_NAME">John</column>
+            <column name="LAST_NAME">Doe</column>
+            <column name="BIRTHDAY">1991-01-01</column>
+            <column name="EMAIL">jdoe@mail.com</column>
+        </insert>
+        <insert tableName="TEST_USER">
+            <column name="ID" valueSequenceNext="TEST_USER_SEQ"/>
+            <column name="EXTERNAL_ID">456</column>
+            <column name="FIRST_NAME">Ivan</column>
+            <column name="LAST_NAME">Ivanov</column>
+            <column name="BIRTHDAY">1992-02-02</column>
+            <column name="EMAIL">iivanov@mail.com</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,12 @@
+$RECYCLE.BIN/
+.idea/
+out/
+build/
+target/
+*.iws
+*.iml
+*.class
+*.jar
+*.war
+*.ear
+Thumbs.db
